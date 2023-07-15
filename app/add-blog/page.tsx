@@ -4,7 +4,7 @@ import InputFields from "./InputFields"
 
 const Page = () => {
   return (
-    <main className="w-full h-[90vh] flex justify-center items-center flex-col gap-5">
+    <main className="w-full min-h-[90vh] max-h-full flex justify-center items-center flex-col gap-5">
       <div className="flex justify-center items-center gap-3 w-full">
         <Image
           width={100}

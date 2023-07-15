@@ -1,0 +1,51 @@
+.react-select-container {
+  @apply w-full text-white text-sm rounded-md bg-transparent border border-transparent outline-none focus:ring-0 focus:outline-none;
+}
+
+.react-select-container .react-select__input-container {
+  @apply dark:text-white;
+}
+
+.react-select__control {
+  @apply bg-transparent border border-transparent outline-none focus:ring-0 focus:outline-none;
+}
+
+.react-select-container .react-select__multi-value {
+  @apply dark:bg-white/30 text-white rounded-md;
+}
+
+.react-select-container
+  .react-select__multi-value
+  .react-select__multi-value__label {
+  @apply dark:text-white;
+}
+
+.react-select-container
+  .react-select__multi-value
+  .react-select__multi-value__remove {
+  @apply hover:text-red-500 hover:bg-white/10 rounded-md text-black dark:text-white;
+}
+
+.react-select-container .react-select__control {
+  @apply bg-transparent;
+}
+
+.react-select-container .react-select__value-container {
+  @apply bg-transparent;
+}
+
+.react-select-container .react-select__menu {
+  @apply p-0 text-sm dark:bg-black dark:text-white;
+}
+
+.react-select-container .react-select__option {
+  @apply p-1 text-sm hover:bg-black hover:text-white;
+}
+
+.react-select-container .react-select__option--is-selected {
+  @apply bg-primary text-white;
+}
+
+.react-select-container input {
+  @apply border-none focus:ring-0 focus:outline-none;
+}
