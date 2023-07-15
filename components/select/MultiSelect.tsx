@@ -22,7 +22,7 @@ const MultiSelect: React.FC<PropsMultiSelect> = ({ setCategory }) => {
   const styles = {
     control: (base: any) => ({
       ...base,
-      border: "1px solid #d3d3d3 ",
+      border: "1px solid #262626",
       boxShadow: "none",
       ":focus": {
         border: "1px solid #262626",
@@ -48,7 +48,7 @@ const MultiSelect: React.FC<PropsMultiSelect> = ({ setCategory }) => {
       "::-webkit-scrollbar-thumb:hover": {
         backgroundColor: "white",
       },
-      "background-color": "#0A0A0A",
+      backgroundColor: "#0A0A0A",
       color: "white",
       borderRadius: "10px",
       ":hover": {
