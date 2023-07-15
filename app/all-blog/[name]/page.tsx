@@ -5,8 +5,9 @@ import BlogOverview from "./BlogOverview"
 
 const Page = ({ params }: { params: { name: string } }) => {
   const { name } = params
-  const urlName = name.replaceAll("-", " ")
-  const filteredData = data.filter((item) => item.title === urlName)
+  const filteredData = data.filter(
+    (item) => item.title.replace(/[^\w]/gi, "-").replaceAll(" ", "-") === name
+  )
 
   return (
     <section className="w-full h-[90vh] flex flex-col gap-5 items-center py-8 px-10 lg:px-0">

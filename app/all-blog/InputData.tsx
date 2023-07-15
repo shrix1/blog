@@ -33,50 +33,6 @@ const data: PropsBlogData[] = [
     time: "2:00 PM",
     date: "2023-07-17",
   },
-  {
-    userName: "John Doe",
-    userId: uuid(),
-    title:
-      "Exploring Ancient History: Unraveling the Mysteries of the Mayan Civilization",
-    description:
-      "Embark on a captivating journey through time as we delve into the rich history and culture of the ancient Mayan civilization. Uncover the mysteries of their impressive architectural wonders and intriguing traditions.",
-    category: ["History", "Culture", "Archaeology"],
-    time: "2:00 PM",
-    date: "2023-07-17",
-  },
-  {
-    userName: "John Doe",
-    userId: uuid(),
-    title:
-      "Exploring Ancient History: Unraveling the Mysteries of the Mayan Civilization",
-    description:
-      "Embark on a captivating journey through time as we delve into the rich history and culture of the ancient Mayan civilization. Uncover the mysteries of their impressive architectural wonders and intriguing traditions.",
-    category: ["History", "Culture", "Archaeology"],
-    time: "2:00 PM",
-    date: "2023-07-17",
-  },
-  {
-    userName: "John Doe",
-    userId: uuid(),
-    title:
-      "Exploring Ancient History: Unraveling the Mysteries of the Mayan Civilization",
-    description:
-      "Embark on a captivating journey through time as we delve into the rich history and culture of the ancient Mayan civilization. Uncover the mysteries of their impressive architectural wonders and intriguing traditions.",
-    category: ["History", "Culture", "Archaeology"],
-    time: "2:00 PM",
-    date: "2023-07-17",
-  },
-  {
-    userName: "John Doe",
-    userId: uuid(),
-    title:
-      "Exploring Ancient History: Unraveling the Mysteries of the Mayan Civilization",
-    description:
-      "Embark on a captivating journey through time as we delve into the rich history and culture of the ancient Mayan civilization. Uncover the mysteries of their impressive architectural wonders and intriguing traditions.",
-    category: ["History", "Culture", "Archaeology"],
-    time: "2:00 PM",
-    date: "2023-07-17",
-  },
 ]
 
 export default data
