@@ -11,10 +11,12 @@ const BlogCard = ({ data }: { data: PropsBlogData }) => {
 
   return (
     <section
-      className="w-1/2 space-y-2 rounded-xl p-3 relative group cursor-pointer"
+      className="w-full lg:w-1/2 space-y-2 rounded-xl p-4 relative group cursor-pointer hover:shadow-xl 
+      transition-all duration-300 hover:bg-gray-300/10 dark:hover:bg-white/5 border-2 
+      border-transparent hover:border-gray-300/40 dark:hover:border-white/5"
       onClick={() => router.push(`/all-blog/${title.replaceAll(" ", "-")}`)}
     >
-      <p className="text-xs opacity-40">
+      <p className="text-xs dark:opacity-50 opacity-70">
         {date} | {time}
       </p>
       <h1 className="text-xl font-semibold line-clamp-1">{title}</h1>

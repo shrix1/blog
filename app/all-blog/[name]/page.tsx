@@ -11,7 +11,7 @@ const Page = ({ params }: { params: { name: string } }) => {
   return (
     <section className="w-full h-[90vh] flex flex-col gap-5 items-center py-8 px-10 lg:px-0">
       <UserInfo data={filteredData} />
-      <hr className="w-1/2" />
+      <hr className="w-full lg:w-1/2" />
       <BlogOverview data={filteredData} />
     </section>
   )

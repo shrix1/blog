@@ -3,10 +3,13 @@ import { PropsBlogData } from "@/types/props"
 import React from "react"
 
 const BlogOverview = ({ data }: { data: PropsBlogData[] }) => {
-  const { title, description, category } = data[0]
+  const { time, date, title, description, category } = data[0]
 
   return (
     <section className="w-full lg:w-1/2 flex flex-col gap-3">
+      <p className="text-xs opacity-80 md:hidden">
+        {time} | {date}
+      </p>
       <h1 className="text-3xl font-semibold">{title}</h1>
 
       <div className="flex gap-2 -mt-2">
