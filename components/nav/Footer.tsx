@@ -9,6 +9,7 @@ const Footer = () => {
         <Link
           href="https://github.com/shrix1"
           className="underline underline-offset-2"
+          target="_blank"
         >
           Shriprasanna
         </Link>{" "}

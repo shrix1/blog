@@ -13,21 +13,21 @@ const Home = () => {
           width={100}
           height={100}
           alt="blogging-image"
-          className="w-[200px] h-[200px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px]"
+          className="w-[200px] h-[200px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] dark:bg-white/50 dark:rounded-2xl"
         />
 
-        <div className="w-full flex flex-col gap-3">
+        <div className="w-full flex flex-col gap-4">
           <h1 className="text-6xl font-bold">Blog it!</h1>
-          <p className="text-lg">
+          <p className="text-lg opacity-80">
             Platform for individuals to share their unique perspectives, spark
             meaningful conversations, and inspire others with valuable insights,
             making it an indispensable medium for personal expression and
             community engagement.
           </p>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 mt-3">
             <Link href="/add-blog">
-              <Button variant="outline">
+              <Button variant="outline" className="border-2 border-border">
                 Write a Blog <FiEdit3 className="ml-2" />
               </Button>
             </Link>
