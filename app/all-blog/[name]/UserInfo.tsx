@@ -10,7 +10,7 @@ const UserInfo = ({ data }: { data: PropsBlogData[] }) => {
   const { time, date } = data[0]
 
   return (
-    <section className="w-1/2 flex justify-between items-center">
+    <section className="w-full lg:w-1/2 flex justify-between items-center">
       <div className="flex gap-2 items-center">
         <Avatar>
           <AvatarImage src={session?.user?.image || ""} alt="profile-img" />
