@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import Link from "next/link"
 
 export default function LoginDropDown() {
   const { data: session } = useSession()
@@ -43,7 +44,9 @@ export default function LoginDropDown() {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuGroup>
-              <DropdownMenuItem>My events</DropdownMenuItem>
+              <Link href="/my-blog">
+                <DropdownMenuItem>My Blogs</DropdownMenuItem>
+              </Link>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 onClick={() => signOut()}
