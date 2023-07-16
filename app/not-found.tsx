@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 
 const NotFound = () => {
   return (
-    <section className="flex w-full h-[90vh] flex-col justify-center items-center gap-5">
-      <h1 className="text-3xl font-semibold">404 - Page Not Found</h1>
+    <section className="flex w-full h-screen flex-col justify-center items-center gap-5">
+      <h1 className="text-3xl font-bold">404 - Page Not Found</h1>
       <Image
         src="https://illustrations.popsy.co/white/crashed-error.svg"
         width={400}
