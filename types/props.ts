@@ -3,10 +3,11 @@ export interface PropsMultiSelect {
 }
 
 export interface PropsBlogData {
-  userName: string
-  userId: string
+  user: string
   title: string
   description: string
+  email: string
+  img: string
   catogory: string[]
   date: string
   time: string

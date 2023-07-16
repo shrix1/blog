@@ -32,7 +32,7 @@ export default function LoginDropDown() {
             <Avatar>
               <AvatarImage src={session?.user?.image || ""} alt="profile-img" />
               <AvatarFallback>
-                {session?.user?.name?.charAt(0).toUpperCase() || ""}
+                {session?.user?.name?.slice(0, 2).toUpperCase() || ""}
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>

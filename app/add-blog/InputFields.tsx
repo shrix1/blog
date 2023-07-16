@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { BiLoaderCircle } from "react-icons/bi"
+import { useSession } from "next-auth/react"
 
 const InputFields: React.FC = () => {
   const [title, setTitle] = useState<string>("")
@@ -18,6 +19,7 @@ const InputFields: React.FC = () => {
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false)
   const correctCatorgy: string[] = category.map((item: any) => item.label)
+  const { data: session } = useSession()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -34,6 +36,9 @@ const InputFields: React.FC = () => {
             title,
             description,
             catogory: correctCatorgy,
+            user: session?.user?.name,
+            email: session?.user?.email,
+            img: session?.user?.image,
             date: new Date().toLocaleDateString(),
             time: new Date().getHours() + ":" + new Date().getMinutes(),
           }),
