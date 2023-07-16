@@ -105,8 +105,11 @@ const InputFields: React.FC = () => {
             Reset
           </Button>
           <Button className="w-32" role="submit" type="submit">
-            {loading && <BiLoaderCircle size={20} className="animate-spin" />}
-            Add Blog
+            {loading ? (
+              <BiLoaderCircle size={20} className="animate-spin" />
+            ) : (
+              "Add Blog"
+            )}
           </Button>
         </div>
       </form>

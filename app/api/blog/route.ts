@@ -3,7 +3,7 @@ import Blog from "@/models/blog"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
-  const { title, description, catogory, date, time, user } =
+  const { title, description, catogory, date, time, user, email, img } =
     await request.json()
 
   await connetMongoDB()
@@ -12,6 +12,8 @@ export async function POST(request: NextRequest) {
     description,
     catogory,
     user,
+    email,
+    img,
     date,
     time,
   })
