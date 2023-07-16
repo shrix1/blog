@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
+import { BiLoaderCircle } from "react-icons/bi"
 
 const InputFields: React.FC = () => {
   const [title, setTitle] = useState<string>("")
@@ -15,7 +16,7 @@ const InputFields: React.FC = () => {
   >([])
   const [error, setError] = useState<boolean>(false)
   const router = useRouter()
-
+  const [loading, setLoading] = useState<boolean>(false)
   const correctCatorgy: string[] = category.map((item: any) => item.label)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,6 +24,7 @@ const InputFields: React.FC = () => {
     if (title === "" || description === "" || category.length === 0) {
       setError(true)
     } else {
+      setLoading(true)
       setError(false)
       try {
         const res = await fetch("http://localhost:3000/api/blog", {
@@ -32,8 +34,8 @@ const InputFields: React.FC = () => {
             title,
             description,
             catogory: correctCatorgy,
-            date: new Date().toLocaleString(),
-            time: new Date().toLocaleTimeString(),
+            date: new Date().toLocaleDateString(),
+            time: new Date().getHours() + ":" + new Date().getMinutes(),
           }),
         })
         setTitle("")
@@ -43,8 +45,10 @@ const InputFields: React.FC = () => {
         if (res.ok) {
           router.push(`/all-blog/${title.replace(/[^\w]/gi, "-")}`)
         }
+        setLoading(false)
       } catch (err) {
         console.log(err)
+        setLoading(false)
       }
     }
   }
@@ -95,7 +99,8 @@ const InputFields: React.FC = () => {
           <Button variant="outline" type="reset">
             Reset
           </Button>
-          <Button className="px-10" role="submit" type="submit">
+          <Button className="w-32" role="submit" type="submit">
+            {loading && <BiLoaderCircle size={20} className="animate-spin" />}
             Add Blog
           </Button>
         </div>

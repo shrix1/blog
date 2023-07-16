@@ -14,6 +14,7 @@ const Home = () => {
           height={100}
           alt="blogging-image"
           className="w-[200px] h-[200px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] dark:bg-white/50 dark:rounded-2xl"
+          priority
         />
 
         <div className="w-full flex flex-col gap-4">

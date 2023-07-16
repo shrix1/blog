@@ -12,6 +12,7 @@ const Page = () => {
           alt="blogging-image"
           src="https://illustrations.popsy.co/white/microphone.svg"
           className="dark:bg-white/50 dark:rounded-2xl"
+          priority
         />
         <div>
           <h1 className="text-3xl md:text-4xl font-bold">Write a Blog</h1>
