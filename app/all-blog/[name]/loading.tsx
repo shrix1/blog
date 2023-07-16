@@ -31,10 +31,11 @@ const Loading = () => {
           <Skeleton className="w-24 p-2" />
         </div>
 
-        <div className="w-full border-2 h-[300px] rounded-lg flex justify-center items-center">
+        <div className="w-full border-2 h-[300px] rounded-lg flex flex-col justify-center items-center">
           <Skeleton>
             <IoMdImage size={50} className="opacity-20" />
           </Skeleton>
+          <Skeleton className="w-[75%] p-2" />
         </div>
 
         <div className="flex gap-2 flex-col">
