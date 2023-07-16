@@ -7,7 +7,7 @@ export interface PropsBlogData {
   userId: string
   title: string
   description: string
-  category: string[]
+  catogory: string[]
   date: string
   time: string
 }

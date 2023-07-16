@@ -3,7 +3,7 @@ import { PropsBlogData } from "@/types/props"
 import React from "react"
 
 const BlogOverview = ({ data }: { data: PropsBlogData[] }) => {
-  const { time, date, title, description, category } = data[0]
+  const { time, date, title, description, catogory } = data[0]
 
   return (
     <section className="w-full lg:w-1/2 flex flex-col gap-3">
@@ -13,7 +13,7 @@ const BlogOverview = ({ data }: { data: PropsBlogData[] }) => {
       <h1 className="text-3xl font-semibold">{title}</h1>
 
       <div className="flex gap-2 -mt-2">
-        {category.map((item, index) => {
+        {catogory.map((item, index) => {
           return (
             <div key={index}>
               <Badge variant="secondary" className="font-normal">

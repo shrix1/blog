@@ -1,12 +1,27 @@
 import React from "react"
-import data from "@/app/all-blog/InputData"
 import UserInfo from "./UserInfo"
 import BlogOverview from "./BlogOverview"
+import { PropsBlogData } from "@/types/props"
 
-const Page = ({ params }: { params: { name: string } }) => {
+const getCorrectBlogs = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/blog", {
+      cache: "no-store",
+    })
+    if (!res.ok) throw new Error("Something went wrong")
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+const Page = async ({ params }: { params: { name: string } }) => {
   const { name } = params
-  const filteredData = data.filter(
-    (item) => item.title.replace(/[^\w]/gi, "-").replaceAll(" ", "-") === name
+  const { blogs } = await getCorrectBlogs()
+
+  const filteredData = blogs.filter(
+    (item: PropsBlogData) =>
+      item.title.replace(/[^\w]/gi, "-").replaceAll(" ", "-") === name
   )
 
   return (

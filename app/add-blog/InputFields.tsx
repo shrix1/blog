@@ -5,20 +5,47 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import React, { useState } from "react"
+import { useRouter } from "next/navigation"
 
 const InputFields: React.FC = () => {
   const [title, setTitle] = useState<string>("")
   const [description, setDescription] = useState<string>("")
-  const [category, setCategory] = useState<string[]>([])
+  const [category, setCategory] = useState<
+    { label: string; value: string }[] | any
+  >([])
   const [error, setError] = useState<boolean>(false)
+  const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const correctCatorgy: string[] = category.map((item: any) => item.label)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (title === "" || description === "" || category.length === 0) {
       setError(true)
     } else {
       setError(false)
-      console.log({ title, description, category })
+      try {
+        const res = await fetch("http://localhost:3000/api/blog", {
+          headers: { "Content-Type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({
+            title,
+            description,
+            catogory: correctCatorgy,
+            date: new Date().toLocaleString(),
+            time: new Date().toLocaleTimeString(),
+          }),
+        })
+        setTitle("")
+        setDescription("")
+        setCategory([])
+
+        if (res.ok) {
+          router.push(`/all-blog/${title.replace(/[^\w]/gi, "-")}`)
+        }
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
   return (

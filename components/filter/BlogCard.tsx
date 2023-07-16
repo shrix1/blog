@@ -6,7 +6,7 @@ import { HiOutlineArrowRight } from "react-icons/hi"
 import { useRouter } from "next/navigation"
 
 const BlogCard = ({ data }: { data: PropsBlogData }) => {
-  const { title, description, category, time, date } = data
+  const { title, description, catogory, time, date } = data
   const router = useRouter()
 
   return (
@@ -23,7 +23,7 @@ const BlogCard = ({ data }: { data: PropsBlogData }) => {
       <p className="line-clamp-2 opacity-70 text-sm">{description}</p>
 
       <div className="flex gap-2 ">
-        {category.map((item, index) => {
+        {catogory.map((item, index) => {
           return (
             <div key={index}>
               <Badge variant="secondary" className="font-normal">
