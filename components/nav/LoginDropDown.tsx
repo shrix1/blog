@@ -50,7 +50,13 @@ export default function LoginDropDown() {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuGroup>
-              <Link href={`/blog/${session?.user?.name?.trim().toLowerCase()}`}>
+              <Link
+                href={`/blog/${session?.user?.name
+                  ?.trim()
+                  .replace(/[^\w]/gi, "-")
+                  .replaceAll(" ", "-")
+                  .toLowerCase()}`}
+              >
                 <DropdownMenuItem>My Blogs</DropdownMenuItem>
               </Link>
               <DropdownMenuSeparator />

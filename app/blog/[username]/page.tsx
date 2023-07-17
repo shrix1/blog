@@ -12,7 +12,12 @@ const Page = async ({ params }: { params: { username: string } }) => {
   const { blogs } = await getISRBlogs()
 
   const filteredData = blogs.filter(
-    (item: PropsBlogData) => item.user.trim().toLowerCase() === username
+    (item: PropsBlogData) =>
+      item.user
+        .trim()
+        .replace(/[^\w]/gi, "-")
+        .replaceAll(" ", "-")
+        .toLowerCase() === username
   )
 
   return (
