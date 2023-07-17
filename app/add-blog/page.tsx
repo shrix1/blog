@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-// import InputFields from "./InputFields"
+import InputFields from "./InputFields"
 
 const Page = () => {
   return (
@@ -26,7 +26,7 @@ const Page = () => {
 
       <hr className="w-full lg:w-1/2 border dark:border-white/20" />
       <div className="w-full lg:w-1/2 px-6 md:px-10">
-        {/* <InputFields /> */}
+        <InputFields />
       </div>
     </main>
   )

@@ -4,25 +4,25 @@ import React from "react"
 import Greeting from "@/components/filter/Greeting"
 import { PropsBlogData } from "@/types/props"
 
-// const getBlogs = async () => {
-//   try {
-//     const res = await fetch("http://localhost:3000/api/blog", {
-//       cache: "no-store",
-//     })
+const getBlogs = async () => {
+  try {
+    const res = await fetch("https://blog-shrix1.vercel.app/api/blog", {
+      cache: "no-store",
+    })
 
-//     if (!res.ok) throw new Error("Something went wrong")
-//     return res.json()
-//   } catch (err) {
-//     console.log(err)
-//   }
-// }
+    if (!res.ok) throw new Error("Something went wrong")
+    return res.json()
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 const Page = async () => {
-  // const { blogs } = await getBlogs()
+  const { blogs } = await getBlogs()
 
   return (
     <main className="w-full flex py-4 px-6 items-center h-[90vh] flex-col gap-5 ">
-      {/* <Greeting />
+      <Greeting />
       <Filter />
 
       <hr className="w-full lg:w-1/2" />
@@ -36,7 +36,7 @@ const Page = async () => {
             <BlogCard data={item} />
           </div>
         )
-      })} */}
+      })}
     </main>
   )
 }
