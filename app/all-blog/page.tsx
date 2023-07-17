@@ -6,7 +6,7 @@ import { PropsBlogData } from "@/types/props"
 
 const getBlogs = async () => {
   try {
-    const res = await fetch("/api/blog", {
+    const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
       cache: "no-store",
     })
 

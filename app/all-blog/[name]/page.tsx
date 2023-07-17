@@ -5,7 +5,7 @@ import { PropsBlogData } from "@/types/props"
 
 const getCorrectBlogs = async () => {
   try {
-    const res = await fetch("/api/blog", {
+    const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
       cache: "no-store",
     })
     if (!res.ok) throw new Error("Something went wrong")
