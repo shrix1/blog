@@ -3,22 +3,10 @@ import Filter from "@/components/filter/Filter"
 import React from "react"
 import Greeting from "@/components/filter/Greeting"
 import { PropsBlogData } from "@/types/props"
-
-const getBlogs = async () => {
-  try {
-    const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
-      cache: "no-store",
-    })
-
-    if (!res.ok) throw new Error("Something went wrong")
-    return res.json()
-  } catch (err) {
-    console.log(err)
-  }
-}
+import { getSSRBlogs } from "../api/blog/getBlogs"
 
 const Page = async () => {
-  const { blogs } = await getBlogs()
+  const { blogs } = await getSSRBlogs()
 
   return (
     <main className="w-full flex py-4 px-6 items-center h-[90vh] flex-col gap-5 ">

@@ -2,22 +2,11 @@ import React from "react"
 import UserInfo from "./UserInfo"
 import BlogOverview from "./BlogOverview"
 import { PropsBlogData } from "@/types/props"
-
-const getCorrectBlogs = async () => {
-  try {
-    const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
-      cache: "no-store",
-    })
-    if (!res.ok) throw new Error("Something went wrong")
-    return res.json()
-  } catch (err) {
-    console.log(err)
-  }
-}
+import { getISRBlogs } from "@/app/api/blog/getBlogs"
 
 const Page = async ({ params }: { params: { name: string } }) => {
   const { name } = params
-  const { blogs } = await getCorrectBlogs()
+  const { blogs } = await getISRBlogs()
 
   const filteredData = blogs.filter(
     (item: PropsBlogData) =>

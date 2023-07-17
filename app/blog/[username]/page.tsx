@@ -5,23 +5,11 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { FiEdit3 } from "react-icons/fi"
 import BlogCard from "@/components/filter/BlogCard"
-
-const getBlogs = async () => {
-  try {
-    //ISR
-    const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
-      next: { revalidate: 60 },
-    })
-    if (!res.ok) throw new Error("Something went wrong")
-    return res.json()
-  } catch (err) {
-    console.log(err)
-  }
-}
+import { getISRBlogs } from "@/app/api/blog/getBlogs"
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const { username } = params
-  const { blogs } = await getBlogs()
+  const { blogs } = await getISRBlogs()
 
   const filteredData = blogs.filter(
     (item: PropsBlogData) => item.user.trim().toLowerCase() === username
