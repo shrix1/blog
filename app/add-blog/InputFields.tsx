@@ -29,7 +29,7 @@ const InputFields = () => {
       setLoading(true)
       setError(false)
       try {
-        const res = await fetch("https://blog-shrix1.vercel.app/api/blog", {
+        const res = await fetch("/api/blog", {
           headers: { "Content-Type": "application/json" },
           method: "POST",
           body: JSON.stringify({
