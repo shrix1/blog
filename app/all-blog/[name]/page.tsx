@@ -3,6 +3,19 @@ import UserInfo from "./UserInfo"
 import BlogOverview from "./BlogOverview"
 import { PropsBlogData } from "@/types/props"
 import { getISRBlogs } from "@/app/api/blog/getBlogs"
+import { Metadata } from "next"
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { name: string }
+}): Promise<Metadata> {
+  const { name } = searchParams
+  return {
+    title: `Blog it! | ${name}`,
+    description: `Blog title is ${name}`,
+  }
+}
 
 const Page = async ({ params }: { params: { name: string } }) => {
   const { name } = params

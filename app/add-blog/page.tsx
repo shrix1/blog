@@ -1,6 +1,12 @@
 import React from "react"
 import Image from "next/image"
 import InputFields from "./InputFields"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog it! | Add Blog",
+  description: "Add a new blog to the website",
+}
 
 const Page = () => {
   return (

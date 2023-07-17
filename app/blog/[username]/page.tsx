@@ -6,6 +6,19 @@ import { Button } from "@/components/ui/button"
 import { FiEdit3 } from "react-icons/fi"
 import BlogCard from "@/components/filter/BlogCard"
 import { getISRBlogs } from "@/app/api/blog/getBlogs"
+import { Metadata } from "next"
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { username: string }
+}): Promise<Metadata> {
+  const { username } = searchParams
+  return {
+    title: `Blog it! | ${username}`,
+    description: `Blog written by ${username}`,
+  }
+}
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const { username } = params

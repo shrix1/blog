@@ -4,6 +4,12 @@ import { getSSRBlogs } from "../api/blog/getBlogs"
 import AllBlogCard from "@/components/filter/AllBlogCard"
 import Filter from "@/components/filter/Filter"
 import { DBBlogData } from "@/types/props"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog it! | All Blogs",
+  description: "Add a new blog to the website",
+}
 
 const Page = async () => {
   const { blogs }: { blogs: DBBlogData[] } = await getSSRBlogs()
