@@ -8,8 +8,9 @@ import BlogCard from "@/components/filter/BlogCard"
 
 const getBlogs = async () => {
   try {
+    //ISR
     const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
-      cache: "no-store",
+      next: { revalidate: 60 },
     })
     if (!res.ok) throw new Error("Something went wrong")
     return res.json()
@@ -19,7 +20,6 @@ const getBlogs = async () => {
 }
 
 const Page = async ({ params }: { params: { username: string } }) => {
-  await new Promise((resolve) => setTimeout(resolve, 10000))
   const { username } = params
   const { blogs } = await getBlogs()
 
