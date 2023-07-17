@@ -19,6 +19,7 @@ const getBlogs = async () => {
 }
 
 const Page = async ({ params }: { params: { username: string } }) => {
+  await new Promise((resolve) => setTimeout(resolve, 10000))
   const { username } = params
   const { blogs } = await getBlogs()
 
@@ -27,12 +28,12 @@ const Page = async ({ params }: { params: { username: string } }) => {
   )
 
   return (
-    <main className="w-full h-[90vh] py-6 flex flex-col gap-3 items-center">
+    <main className="w-full h-[90vh] py-6 flex flex-col gap-3 items-center px-3 lg:px-0">
       <ProfileHeader filteredUser={filteredData} />
 
       <hr className="w-full lg:w-1/2" />
 
-      <div className="flex justify-between w-full lg:w-1/2 items-center">
+      <div className="flex justify-between flex-col gap-2 md:gap-0 md:flex-row w-full lg:w-1/2 items-center">
         <p>
           <span className="opacity-70">Number of Blogs written :</span>
           <span className="font-bold"> {filteredData.length}</span>

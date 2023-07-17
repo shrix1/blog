@@ -26,7 +26,7 @@ const Loading = () => {
           return (
             <section
               key={index}
-              className="w-full lg:w-1/2 flex gap-3 flex-col p-3 border rounded-lg"
+              className="w-full lg:w-1/2 flex gap-3 flex-col p-3 border border-border/30 rounded-lg"
             >
               <Skeleton className="w-40 p-2" />
               <Skeleton className="w-full p-4" />
