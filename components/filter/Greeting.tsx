@@ -7,10 +7,14 @@ const Greeting = () => {
   const { data: session } = useSession()
 
   return (
-    <h1 className="flex items-center w-full lg:w-1/2 font-medium text-lg -mb-3">
-      Hello, <span className="font-bold"> {session?.user?.name}</span>
-      <FiSmile className="stroke-[2px] ml-1" />
-    </h1>
+    <>
+      {session ? (
+        <h1 className="flex items-center w-full lg:w-1/2 font-medium text-lg -mb-3">
+          Hello, <span className="font-bold"> {session?.user?.name}</span>
+          <FiSmile className="stroke-[2px] ml-1" />
+        </h1>
+      ) : null}
+    </>
   )
 }
 
