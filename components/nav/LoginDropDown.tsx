@@ -29,12 +29,18 @@ export default function LoginDropDown() {
       {session ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Avatar>
-              <AvatarImage src={session?.user?.image || ""} alt="profile-img" />
-              <AvatarFallback>
-                {session?.user?.name?.slice(0, 2).toUpperCase() || ""}
-              </AvatarFallback>
-            </Avatar>
+            {session?.user?.image && (
+              <Avatar>
+                <AvatarImage
+                  src={session?.user?.image}
+                  alt="user profile picture"
+                />
+                <AvatarFallback>
+                  {session?.user?.name &&
+                    session?.user?.name.slice(0, 2).toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+            )}
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>
