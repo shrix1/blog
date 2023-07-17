@@ -8,7 +8,7 @@ import BlogCard from "@/components/filter/BlogCard"
 
 const getBlogs = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/blog/", {
+    const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
       cache: "no-store",
     })
     if (!res.ok) throw new Error("Something went wrong")
