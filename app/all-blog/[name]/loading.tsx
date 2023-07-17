@@ -33,9 +33,9 @@ const Loading = () => {
 
         <div className="w-full border-2 h-[300px] rounded-lg flex flex-col gap-2 justify-center items-center">
           <Skeleton>
-            <IoMdImage size={50} className="opacity-20" />
+            <IoMdImage size={50} className="opacity-10" />
           </Skeleton>
-          <Skeleton className="w-[75%] p-2" />
+          <Skeleton className="w-1/2 p-2" />
         </div>
 
         <div className="flex gap-2 flex-col">
