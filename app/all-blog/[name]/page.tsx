@@ -23,7 +23,7 @@ const Page = async ({ params }: { params: { name: string } }) => {
 
   const filteredData = blogs.filter(
     (item: PropsBlogData) =>
-      item.title.replace(/[^\w]/gi, "-").replaceAll(" ", "-") === name
+      item.title.trim().replace(/[^\w]/gi, "-").replaceAll(" ", "-") === name
   )
 
   return (
