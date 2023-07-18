@@ -57,7 +57,7 @@ export default function LoginDropDown() {
                   "lh3.googleusercontent.com" ? (
                     <AiFillGoogleCircle size={30} />
                   ) : (
-                    <ImGithub size={30} />
+                    <ImGithub size={25} />
                   )}
                 </div>
               </section>
