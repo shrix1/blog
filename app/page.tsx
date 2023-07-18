@@ -1,8 +1,8 @@
+import WriteBlogButtton from "@/components/WriteBlogButtton"
 import Footer from "@/components/nav/Footer"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { FiEdit3 } from "react-icons/fi"
 
 const Home = () => {
   return (
@@ -27,11 +27,7 @@ const Home = () => {
           </p>
 
           <div className="flex gap-3 mt-3">
-            <Link href="/add-blog">
-              <Button variant="outline" className="border-2 border-border">
-                Write a Blog <FiEdit3 className="ml-2" />
-              </Button>
-            </Link>
+            <WriteBlogButtton />
 
             <Link href="/all-blog">
               <Button>View All Blogs</Button>
