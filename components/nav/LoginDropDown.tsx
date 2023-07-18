@@ -44,10 +44,23 @@ export default function LoginDropDown() {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>
-              <div>
-                <h1 className="capitalize text-sm">{session?.user?.name}</h1>
-                <p className="text-[10px] opacity-50">{session?.user?.email}</p>
-              </div>
+              <section className="flex justify-between items-center">
+                <div>
+                  <h1 className="capitalize text-sm">{session?.user?.name}</h1>
+                  <p className="text-[10px] opacity-50">
+                    {session?.user?.email}
+                  </p>
+                </div>
+
+                <div>
+                  {session?.user?.image?.split("/")[2] ===
+                  "lh3.googleusercontent.com" ? (
+                    <AiFillGoogleCircle size={30} />
+                  ) : (
+                    <ImGithub size={30} />
+                  )}
+                </div>
+              </section>
             </DropdownMenuLabel>
             <DropdownMenuGroup>
               <Link
