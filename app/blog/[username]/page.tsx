@@ -9,13 +9,14 @@ import { getISRBlogs } from "@/app/api/blog/getBlogs"
 import { Metadata } from "next"
 
 export async function generateMetadata({
-  searchParams,
+  params,
 }: {
-  searchParams: { username: string }
+  params: { username: string }
 }): Promise<Metadata> {
-  const { username } = searchParams
+  const { username } = params
+
   return {
-    title: `Blog it! | ${username}`,
+    title: `Blog it! | ${username.replaceAll("-", " ")}`,
     description: `Blog written by ${username}`,
   }
 }
