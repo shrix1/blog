@@ -1,26 +1,44 @@
 "use client"
-import { PropsBlogData } from "@/types/props"
+import { DBBlogData } from "@/types/props"
 import React from "react"
 import { Badge } from "../ui/badge"
 import { HiOutlineArrowRight } from "react-icons/hi"
 import { useRouter } from "next/navigation"
+import Settings from "./Settings"
+import { usePathname } from "next/navigation"
+import { useSession } from "next-auth/react"
 
-const BlogCard = ({ data }: { data: PropsBlogData }) => {
-  const { title, description, catogory, time, date } = data
+const BlogCard = ({
+  data,
+  username,
+}: {
+  data: DBBlogData
+  username?: string
+}) => {
+  const { title, description, catogory, time, date, _id } = data
   const router = useRouter()
+  const path = usePathname()
+  const { data: session } = useSession()
 
   return (
     <section
       className="w-full lg:w-1/2 space-y-2 rounded-xl p-4 relative group cursor-pointer hover:shadow-xl 
       transition-all duration-300 hover:bg-gray-300/10 dark:hover:bg-white/5 border-2 
       border-transparent hover:border-gray-300/40 dark:hover:border-white/5"
-      onClick={() =>
-        router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
-      }
+      // onClick={() =>
+      //   router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
+      // }
     >
-      <p className="text-xs dark:opacity-50 opacity-70">
-        {date} | {time}
-      </p>
+      <div className="flex justify-between items-center">
+        <p className="text-xs dark:opacity-50 opacity-70">
+          {date} | {time}
+        </p>
+
+        {path.startsWith("/blog") &&
+        session?.user?.name?.trim().toLowerCase() === username ? (
+          <Settings _id={_id} />
+        ) : null}
+      </div>
       <h1 className="text-xl font-semibold line-clamp-1">{title}</h1>
       <p className="line-clamp-2 opacity-70 text-sm">{description}</p>
 

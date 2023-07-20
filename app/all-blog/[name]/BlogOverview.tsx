@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge"
-import { PropsBlogData } from "@/types/props"
+import { DBBlogData } from "@/types/props"
 import React from "react"
 import { IoMdImage } from "react-icons/io"
 
-const BlogOverview = ({ data }: { data: PropsBlogData[] }) => {
+const BlogOverview = ({ data }: { data: DBBlogData[] }) => {
   const { time, date, title, description, catogory } = data[0]
 
   return (

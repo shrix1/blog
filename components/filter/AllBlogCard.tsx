@@ -1,5 +1,5 @@
 "use client"
-import { DBBlogData, PropsBlogData } from "@/types/props"
+import { DBBlogData } from "@/types/props"
 import React, { useState } from "react"
 import BlogCard from "./BlogCard"
 import { useSearchStore } from "@/store/mainStore"
@@ -18,7 +18,7 @@ const AllBlogCard = ({ blogs }: { blogs: DBBlogData[] }) => {
             return item
           }
         })
-        .map((item: PropsBlogData, index: React.Key | null | undefined) => {
+        .map((item: DBBlogData, index: React.Key | null | undefined) => {
           return (
             <div
               key={index}

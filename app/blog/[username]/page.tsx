@@ -1,5 +1,5 @@
 import ProfileHeader from "@/components/profile/ProfileHeader"
-import { PropsBlogData } from "@/types/props"
+import { DBBlogData } from "@/types/props"
 import React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -26,7 +26,7 @@ const Page = async ({ params }: { params: { username: string } }) => {
   const { blogs } = await getISRBlogs()
 
   const filteredData = blogs.filter(
-    (item: PropsBlogData) =>
+    (item: DBBlogData) =>
       item.user
         .trim()
         .replace(/[^\w]/gi, "-")
@@ -57,13 +57,13 @@ const Page = async ({ params }: { params: { username: string } }) => {
       <hr className="w-full lg:w-1/2" />
 
       {filteredData.map(
-        (item: PropsBlogData, index: React.Key | null | undefined) => {
+        (item: DBBlogData, index: React.Key | null | undefined) => {
           return (
             <div
               key={index}
               className="grid place-items-center flex-col w-full gap-3"
             >
-              <BlogCard data={item} />
+              <BlogCard data={item} username={username} />
             </div>
           )
         }

@@ -25,3 +25,10 @@ export async function GET() {
   const blogs = await Blog.find({})
   return NextResponse.json({ blogs }, { status: 200 })
 }
+
+export async function DELETE(request: NextRequest) {
+  const id = request.nextUrl.searchParams.get("id")
+  await connetMongoDB()
+  await Blog.findByIdAndDelete(id)
+  return NextResponse.json({ message: "blog deleted" }, { status: 200 })
+}

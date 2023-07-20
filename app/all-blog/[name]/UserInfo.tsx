@@ -2,10 +2,10 @@
 import React from "react"
 import { Avatar } from "@/components/ui/avatar"
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
-import { PropsBlogData } from "@/types/props"
+import { DBBlogData } from "@/types/props"
 import { useRouter } from "next/navigation"
 
-const UserInfo = ({ data }: { data: PropsBlogData[] }) => {
+const UserInfo = ({ data }: { data: DBBlogData[] }) => {
   const { time, date, user, email, img } = data[0]
   const router = useRouter()
 
