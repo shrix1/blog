@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { FiEdit3 } from "react-icons/fi"
 import BlogCard from "@/components/filter/BlogCard"
-import { getISRBlogs } from "@/app/api/blog/getBlogs"
+import { getSSRBlogs } from "@/app/api/blog/getBlogs"
 import { Metadata } from "next"
 
 export async function generateMetadata({
@@ -23,7 +23,7 @@ export async function generateMetadata({
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const { username } = params
-  const { blogs } = await getISRBlogs()
+  const { blogs } = await getSSRBlogs()
 
   const filteredData = blogs.filter(
     (item: DBBlogData) =>

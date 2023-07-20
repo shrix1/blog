@@ -9,15 +9,25 @@ import {
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { FiEdit3, FiTrash } from "react-icons/fi"
+import { useRouter } from "next/navigation"
 
 const Settings = ({ _id }: { _id: string | undefined }) => {
+  const router = useRouter()
+
   const handleDelete = async () => {
     const confirm = window.confirm("Are you sure you want to delete this blog?")
 
     if (confirm) {
-      await fetch(`https://blog-shrix1.vercel.app/api/blog?id=${_id}`, {
-        method: "DELETE",
-      })
+      const res = await fetch(
+        `https://blog-shrix1.vercel.app/api/blog?id=${_id}`,
+        {
+          method: "DELETE",
+        }
+      )
+
+      if (res.ok) {
+        router.refresh()
+      }
     }
   }
 
