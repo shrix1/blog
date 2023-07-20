@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import {
   Tooltip,
   TooltipContent,
@@ -10,24 +10,31 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { FiEdit3, FiTrash } from "react-icons/fi"
 import { useRouter } from "next/navigation"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 const Settings = ({ _id }: { _id: string | undefined }) => {
   const router = useRouter()
 
   const handleDelete = async () => {
-    const confirm = window.confirm("Are you sure you want to delete this blog?")
-
-    if (confirm) {
-      const res = await fetch(
-        `https://blog-shrix1.vercel.app/api/blog?id=${_id}`,
-        {
-          method: "DELETE",
-        }
-      )
-
-      if (res.ok) {
-        router.refresh()
+    const res = await fetch(
+      `https://blog-shrix1.vercel.app/api/blog?id=${_id}`,
+      {
+        method: "DELETE",
       }
+    )
+
+    if (res.ok) {
+      router.refresh()
     }
   }
 
@@ -54,13 +61,31 @@ const Settings = ({ _id }: { _id: string | undefined }) => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button
-              variant="outline"
-              className="px-2 py-0"
-              onClick={handleDelete}
-            >
-              <FiTrash />
-            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="outline" className="px-2 py-0">
+                  <FiTrash />
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you Want to Delete ?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your blog and remove your data from our servers.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction
+                    className="bg-red-500 text-white"
+                    onClick={handleDelete}
+                  >
+                    Delete
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </TooltipTrigger>
 
           <TooltipContent className="py-0.5 px-2">
