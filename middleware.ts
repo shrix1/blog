@@ -10,9 +10,9 @@ export function middleware(request: NextRequest) {
   const token =
     request.cookies.get("__Secure-next-auth.session-token")?.value || ""
 
-  // if (privatePath && !token) {
-  //   return NextResponse.redirect(new URL("/", request.nextUrl))
-  // }
+  if (privatePath && !token) {
+    return NextResponse.redirect(new URL("/", request.nextUrl))
+  }
 }
 
 // See "Matching Paths" below to learn more
