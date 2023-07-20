@@ -48,7 +48,7 @@ const InputFields = () => {
         setCategory([])
 
         if (res.ok) {
-          router.push(`/all-blog/${title.replace(/[^\w]/gi, "-")}`)
+          router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
         }
         setLoading(false)
       } catch (err) {
