@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"
 import Settings from "./Settings"
 import { usePathname } from "next/navigation"
 import { useSession } from "next-auth/react"
+import { Button } from "../ui/button"
 
 const BlogCard = ({
   data,
@@ -22,11 +23,14 @@ const BlogCard = ({
 
   return (
     <section
-      className="w-full lg:w-1/2 space-y-2 rounded-xl p-4 relative group cursor-pointer hover:shadow-xl 
+      className={` w-full lg:w-1/2 space-y-2 rounded-xl p-4 relative group hover:shadow-xl 
       transition-all duration-300 hover:bg-gray-300/10 dark:hover:bg-white/5 border-2 
-      border-transparent hover:border-gray-300/40 dark:hover:border-white/5"
+      border-transparent hover:border-gray-300/40 dark:hover:border-white/5 
+      ${path.startsWith("/blog") ? "cursor-default" : "cursor-pointer"}`}
       onClick={() =>
-        router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
+        path.startsWith("/blog")
+          ? null
+          : router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
       }
     >
       <div className="flex justify-between items-center">
@@ -54,9 +58,22 @@ const BlogCard = ({
         })}
       </div>
 
-      <div className="absolute right-3 -rotate-45 bottom-3 opacity-0 group-hover:opacity-70">
-        <HiOutlineArrowRight size={30} />
-      </div>
+      {path.startsWith("/blog") ? (
+        <div className="absolute right-3 bottom-3 opacity-0 group-hover:opacity-100">
+          <Button
+            className="px-2 py-1 h-7"
+            onClick={() =>
+              router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
+            }
+          >
+            View
+          </Button>
+        </div>
+      ) : (
+        <div className="absolute right-3 -rotate-45 bottom-3 opacity-0 group-hover:opacity-70">
+          <HiOutlineArrowRight size={30} />
+        </div>
+      )}
     </section>
   )
 }
