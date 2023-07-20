@@ -4,7 +4,7 @@ import React from "react"
 import { IoMdImage } from "react-icons/io"
 
 const BlogOverview = ({ data }: { data: DBBlogData[] }) => {
-  const { time, date, title, description, catogory } = data[0]
+  const { time, date, title, description, catogory } = data[0] || data
 
   return (
     <section className="w-full lg:w-1/2 flex flex-col gap-3">
@@ -14,7 +14,7 @@ const BlogOverview = ({ data }: { data: DBBlogData[] }) => {
       <h1 className="text-3xl font-semibold">{title}</h1>
 
       <div className="flex gap-2 -mt-2">
-        {catogory.map((item, index) => {
+        {catogory?.map((item, index) => {
           return (
             <div key={index}>
               <Badge variant="secondary" className="font-normal">

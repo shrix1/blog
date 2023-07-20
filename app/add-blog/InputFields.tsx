@@ -29,7 +29,7 @@ const InputFields = () => {
       setLoading(true)
       setError(false)
       try {
-        const res = await fetch("https://blog-shrix1.vercel.app/api/blog/", {
+        const res = await fetch("http://localhost:3000/api/blog/", {
           headers: { "Content-Type": "application/json" },
           method: "POST",
           body: JSON.stringify({
@@ -49,6 +49,7 @@ const InputFields = () => {
 
         if (res.ok) {
           router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
+          console.log(title.trim().replace(/[^\w]/gi, "-"))
         }
         setLoading(false)
       } catch (err) {
