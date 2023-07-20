@@ -2,9 +2,9 @@
 import React from "react"
 import { Avatar, AvatarFallback } from "../ui/avatar"
 import { AvatarImage } from "@radix-ui/react-avatar"
-import { PropsBlogData } from "@/types/props"
+import { DBBlogData } from "@/types/props"
 
-const ProfileHeader = ({ filteredUser }: PropsBlogData[] | any) => {
+const ProfileHeader = ({ filteredUser }: DBBlogData[] | any) => {
   const { user, email, img } = filteredUser[0]
 
   return (
