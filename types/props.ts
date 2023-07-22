@@ -1,5 +1,6 @@
 export interface PropsMultiSelect {
   setCategory: React.Dispatch<React.SetStateAction<string[]>>
+  value?: string[]
 }
 
 export interface SearchProps {

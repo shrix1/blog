@@ -4,7 +4,11 @@ import Select from "react-select"
 import "./multiselect.css"
 import { PropsMultiSelect } from "@/types/props"
 
-const MultiSelect: React.FC<PropsMultiSelect> = ({ setCategory }) => {
+const MultiSelect: React.FC<PropsMultiSelect> = ({ setCategory, value }) => {
+  // const valueData = value.map((item) => {
+  //   return { value: item, label: item }
+  // })
+
   const data = [
     { value: "technology", label: "Technology" },
     { value: "science", label: "Science" },
@@ -65,6 +69,7 @@ const MultiSelect: React.FC<PropsMultiSelect> = ({ setCategory }) => {
         isSearchable
         isClearable
         name="catorgory"
+        // options={value ? valueData : data}
         options={data}
         maxMenuHeight={150}
         styles={styles}

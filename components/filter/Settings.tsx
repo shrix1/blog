@@ -44,11 +44,13 @@ const Settings = ({ _id }: { _id: string | undefined }) => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Link href="/add-blog">
-              <Button variant="outline" className="px-2 py-0">
-                <FiEdit3 />
-              </Button>
-            </Link>
+            <Button
+              variant="outline"
+              className="px-2 py-0"
+              onClick={() => router.push(`/edit-blog/${_id}`)}
+            >
+              <FiEdit3 />
+            </Button>
           </TooltipTrigger>
 
           <TooltipContent className="py-0.5 px-2">
