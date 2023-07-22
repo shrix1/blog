@@ -55,12 +55,12 @@ const EditForm = ({
       )
 
       if (!res.ok) {
-        throw new Error("Failed to update topic")
+        throw new Error("Failed to update blog")
       }
 
       setLoading(false)
+      router.push(`/all-blog/${title.trim().replace(/[^\w]/gi, "-")}`)
       router.refresh()
-      router.push("/")
     } catch (error) {
       console.log(error)
       setLoading(false)
