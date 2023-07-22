@@ -38,7 +38,7 @@ const EditForm = ({
 
     try {
       const res = await fetch(
-        `https://blog-shrix1.vercel.app/api/topics/${id}/`,
+        `https://blog-shrix1.vercel.app/api/blog/${id}/`,
         {
           method: "PUT",
           headers: {
