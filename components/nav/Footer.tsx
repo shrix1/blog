@@ -5,14 +5,15 @@ const Footer = () => {
   return (
     <div className="w-full flex items-center justify-center">
       <h1>
-        Build by{" "}
+        Carfted by{" "}
         <Link
           href="https://github.com/shrix1"
           className="underline underline-offset-2"
           target="_blank"
         >
           Shriprasanna
-        </Link>{" "}
+        </Link>
+        .
       </h1>
     </div>
   )
