@@ -1,8 +1,8 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { AiFillGoogleCircle } from "react-icons/ai"
-import { ImGithub } from "react-icons/im"
-import { AiOutlineLogout } from "react-icons/ai"
+"use client";
+import { Button } from "@/components/ui/button";
+import { AiFillGoogleCircle } from "react-icons/ai";
+import { ImGithub } from "react-icons/im";
+import { AiOutlineLogout } from "react-icons/ai";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,13 +16,13 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { signIn, signOut, useSession } from "next-auth/react"
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
-import Link from "next/link"
+} from "@/components/ui/dropdown-menu";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import Link from "next/link";
 
 export default function LoginDropDown() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function LoginDropDown() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             {session?.user?.image && (
-              <Avatar>
+              <Avatar className="cursor-pointer">
                 <AvatarImage
                   src={session?.user?.image}
                   alt="user profile picture"
@@ -70,12 +70,14 @@ export default function LoginDropDown() {
                   .replaceAll(" ", "-")
                   .toLowerCase()}`}
               >
-                <DropdownMenuItem>My Blogs</DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  My Blogs
+                </DropdownMenuItem>
               </Link>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 onClick={() => signOut()}
-                className="text-red-500 focus:bg-red-500/20 focus:text-red-500"
+                className="text-red-500 focus:bg-red-500/20 focus:text-red-500 cursor-pointer"
               >
                 Logout
                 <DropdownMenuShortcut>
@@ -112,5 +114,5 @@ export default function LoginDropDown() {
         </DropdownMenu>
       )}
     </>
-  )
+  );
 }
