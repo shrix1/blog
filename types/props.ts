@@ -8,6 +8,11 @@ export interface SearchProps {
   setSearch: (search: string) => void
 }
 
+export interface SettingsProps {
+  isLoading: boolean
+  setIsLoading: (settings: boolean) => void
+}
+
 export interface DBBlogData {
   _id?: string
   title: string

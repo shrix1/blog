@@ -7,7 +7,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { FiEdit3, FiTrash } from "react-icons/fi"
 import { useRouter } from "next/navigation"
 import {
@@ -21,11 +20,14 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { useSettings } from "@/store/mainStore"
 
 const Settings = ({ _id }: { _id: string | undefined }) => {
   const router = useRouter()
+  const [setIsLoading] = useSettings((state) => [state.setIsLoading])
 
   const handleDelete = async () => {
+    setIsLoading(true)
     const res = await fetch(
       `https://blog-shrix1.vercel.app/api/blog?id=${_id}`,
       {
@@ -34,6 +36,7 @@ const Settings = ({ _id }: { _id: string | undefined }) => {
     )
 
     if (res.ok) {
+      setIsLoading(false)
       router.refresh()
     }
   }
@@ -80,7 +83,7 @@ const Settings = ({ _id }: { _id: string | undefined }) => {
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
                   <AlertDialogAction
-                    className="bg-red-500 text-white"
+                    className="bg-red-500 text-white hover:bg-red-900"
                     onClick={handleDelete}
                   >
                     Delete
