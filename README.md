@@ -1,7 +1,8 @@
 <h1 style="text-align: center;" >Full stack Blogging app (kind-off)</h1>
 
 ##  Use this repo to Learn nextjs (App Router) if your a Beginner
-<img width="1436" alt="Screenshot 2023-08-19 at 10 58 45 PM" src="https://github.com/shrix1/blog/assets/92677078/06118b6c-9f58-4cf0-bd3f-6db75221a574">
+<img width="1438" alt="Screenshot 2023-08-19 at 11 36 05 PM" src="https://github.com/shrix1/blog/assets/92677078/57c5dc9c-bc3d-4f80-9747-72d726ae9d25">
+
 
 
 ---
