@@ -13,6 +13,7 @@
  - Images/svg : `Popsy`
  - Icons : `React-Icons`
  - Hosting : `Vercel`
+ - Animation : `Framer Motion`
 
 ---
 ## Setup
