@@ -12,12 +12,13 @@ const description =
   "Blog it! is a platform for individuals to share their unique perspectives, meaningful stories with the world."
 
 export const metadata: Metadata = {
-  // metadataBase: new URL("https://blog-shrix1.vercel.app/"),
+  metadataBase: new URL("https://blog-shrix1.vercel.app/"),
   title,
   description,
   openGraph: {
     title,
     description,
+    images: ["/og.png"],
   },
   alternates: {
     canonical: "/",
