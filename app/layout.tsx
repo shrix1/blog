@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    images: ["/og.png"],
   },
   alternates: {
     canonical: "/",
@@ -29,7 +28,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@shriprasanna007",
   },
-  themeColor: "#000000",
 }
 
 export default function RootLayout({
