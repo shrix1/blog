@@ -19,12 +19,16 @@ export const metadata: Metadata = {
     title,
     description,
   },
+  alternates: {
+    canonical: "/",
+  },
   twitter: {
     title,
     description,
     card: "summary_large_image",
     creator: "@shriprasanna007",
   },
+  themeColor: "#000000",
 }
 
 export default function RootLayout({
