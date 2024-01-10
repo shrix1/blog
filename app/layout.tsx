@@ -16,9 +16,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://blog-shrix1.vercel.app"),
   title,
   description,
+  keywords: ["Blogs", "Nextjs", "vercel", "OpenSource"],
   openGraph: {
     title,
     description,
+    images: [
+      {
+        url: "/opengraph-image.png" || "/og.png",
+        alt: title,
+        type: "image/png",
+      },
+    ],
   },
   alternates: {
     canonical: "/",
